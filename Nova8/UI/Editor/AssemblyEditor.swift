@@ -53,7 +53,7 @@ struct AssemblyEditor: NSViewRepresentable {
             .foregroundColor: NSColor.novaText
         ]
         textView.font = NSFont.monospacedSystemFont(ofSize: AssemblyHighlighter.fontSize, weight: .regular)
-        textView.textContainerInset = NSSize(width: 10, height: 12)
+        textView.textContainerInset = NSSize(width: CodeTextView.gutterWidth + 10, height: 12)
         textView.isVerticallyResizable = true
         textView.isHorizontallyResizable = false
         textView.autoresizingMask = [.width]
@@ -68,30 +68,17 @@ struct AssemblyEditor: NSViewRepresentable {
 
         scrollView.documentView = textView
 
-        let ruler = LineNumberRulerView(codeView: textView, scrollView: scrollView)
-        scrollView.hasVerticalRuler = true
-        scrollView.rulersVisible = true
-        scrollView.verticalRulerView = ruler
-
-        ruler.onToggleBreakpoint = { [weak coordinator = context.coordinator] line in
+        context.coordinator.textView = textView
+        textView.onToggleBreakpoint = { [weak coordinator = context.coordinator] line in
             coordinator?.parent.onToggleBreakpoint(line)
         }
-        ruler.onFocusLine = { [weak coordinator = context.coordinator] line in
+        textView.onFocusLine = { [weak coordinator = context.coordinator] line in
             coordinator?.focusFromGutter(line)
         }
 
-        scrollView.contentView.postsBoundsChangedNotifications = true
-        let token = NotificationCenter.default.addObserver(
-            forName: NSView.boundsDidChangeNotification,
-            object: scrollView.contentView,
-            queue: .main
-        ) { [weak ruler] _ in
-            ruler?.needsDisplay = true
-        }
-
-        context.coordinator.observer = token
-        context.coordinator.textView = textView
-        context.coordinator.ruler = ruler
+        textView.currentLine = highlightedLine
+        textView.breakpoints = breakpoints
+        textView.lineAddresses = lineAddresses
 
         AssemblyHighlighter.apply(to: textView, diagnostics: diagnostics)
         context.coordinator.lastDiagnosticKey = diagnosticKey(diagnostics)
@@ -99,15 +86,9 @@ struct AssemblyEditor: NSViewRepresentable {
         context.coordinator.lastBreakpoints = breakpoints
         context.coordinator.lastAddresses = lineAddresses
         context.coordinator.lastHighlightedLine = highlightedLine
-        context.coordinator.updateRuler(
-            breakpoints: breakpoints,
-            addresses: lineAddresses,
-            currentLine: highlightedLine
-        )
 
         DispatchQueue.main.async {
             textView.window?.makeFirstResponder(textView)
-            ruler.needsDisplay = true
         }
 
         return scrollView
@@ -115,8 +96,7 @@ struct AssemblyEditor: NSViewRepresentable {
 
     func updateNSView(_ scrollView: NSScrollView, context: Context) {
         context.coordinator.parent = self
-        guard let textView = context.coordinator.textView,
-              let ruler = context.coordinator.ruler else { return }
+        guard let textView = context.coordinator.textView else { return }
 
         if textView.string != text {
             context.coordinator.isProgrammatic = true
@@ -128,7 +108,6 @@ struct AssemblyEditor: NSViewRepresentable {
             AssemblyHighlighter.apply(to: textView, diagnostics: diagnostics)
             context.coordinator.lastDiagnosticKey = diagnosticKey(diagnostics)
             textView.scrollRangeToVisible(NSRange(location: 0, length: 0))
-            ruler.needsDisplay = true
         } else {
             let key = diagnosticKey(diagnostics)
             if key != context.coordinator.lastDiagnosticKey {
@@ -139,8 +118,7 @@ struct AssemblyEditor: NSViewRepresentable {
 
         if context.coordinator.lastHighlightedLine != highlightedLine {
             context.coordinator.lastHighlightedLine = highlightedLine
-            textView.highlightedLine = highlightedLine
-            ruler.currentLine = highlightedLine
+            textView.currentLine = highlightedLine
             if autoScroll, let line = highlightedLine {
                 let start = textView.characterIndex(forLine: line)
                 textView.scrollRangeToVisible(NSRange(location: start, length: 0))
@@ -149,33 +127,17 @@ struct AssemblyEditor: NSViewRepresentable {
 
         if context.coordinator.lastBreakpoints != breakpoints {
             context.coordinator.lastBreakpoints = breakpoints
-            context.coordinator.updateRuler(
-                breakpoints: breakpoints,
-                addresses: lineAddresses,
-                currentLine: highlightedLine
-            )
+            textView.breakpoints = breakpoints
         }
 
         if context.coordinator.lastAddresses != lineAddresses {
             context.coordinator.lastAddresses = lineAddresses
-            context.coordinator.updateRuler(
-                breakpoints: breakpoints,
-                addresses: lineAddresses,
-                currentLine: highlightedLine
-            )
+            textView.lineAddresses = lineAddresses
         }
 
         if context.coordinator.lastFocusToken != focusToken {
             context.coordinator.lastFocusToken = focusToken
             context.coordinator.focusFromGutter(focusLine)
-        }
-
-        ruler.needsDisplay = true
-    }
-
-    static func dismantleNSView(_ nsView: NSScrollView, coordinator: Coordinator) {
-        if let observer = coordinator.observer {
-            NotificationCenter.default.removeObserver(observer)
         }
     }
 
@@ -191,8 +153,6 @@ struct AssemblyEditor: NSViewRepresentable {
     final class Coordinator: NSObject, NSTextViewDelegate {
         var parent: AssemblyEditor
         weak var textView: CodeTextView?
-        weak var ruler: LineNumberRulerView?
-        var observer: NSObjectProtocol?
         var isProgrammatic = false
         var lastFocusToken = 0
         var lastText = ""
@@ -211,7 +171,6 @@ struct AssemblyEditor: NSViewRepresentable {
             parent.text = textView.string
             lastText = textView.string
             AssemblyHighlighter.apply(to: textView, diagnostics: parent.diagnostics)
-            ruler?.needsDisplay = true
             reportCursorLine()
         }
 
@@ -233,18 +192,6 @@ struct AssemblyEditor: NSViewRepresentable {
             textView.focus(line: line)
             parent.onCursorLineChange(line)
             lastReportedLine = line
-            ruler?.needsDisplay = true
-        }
-
-        func updateRuler(breakpoints: Set<Int>, addresses: [Int: UInt8], currentLine: Int?) {
-            guard let ruler else { return }
-            ruler.breakpoints = breakpoints
-            ruler.lineAddresses = addresses
-            ruler.currentLine = currentLine
-            if let textView {
-                textView.highlightedLine = currentLine
-            }
-            ruler.needsDisplay = true
         }
     }
 }
