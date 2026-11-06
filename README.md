@@ -224,3 +224,7 @@ All tests pass with `xcodebuild test`.
 - The stack pointer starts at `0xEF` and grows downward. `PUSH` writes at SP and then decrements; `POP` increments first and then reads.
 - The autosaved buffer lives at `~/Library/Application Support/Nova8/last.asm`.
 - The app is intentionally not sandboxed so file open/save and the local autosave work without extra prompts.
+
+## License
+
+NOVA-8 is released under the [MIT License](LICENSE).
