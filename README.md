@@ -12,17 +12,20 @@ NOVA-8 is a teaching machine, not an emulator of anything. It has a deliberately
 
 ## Run it
 
-Requirements: macOS 15 or later and Xcode 16 or later.
+Requirements: macOS 15 or later, Xcode 16 or later, and [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`).
 
 ```sh
-cd Nova8
+git clone https://github.com/xeronith/nova8.git
+cd nova8
 xcodegen generate
 open Nova8.xcodeproj
 ```
 
-Choose the **Nova8** scheme and press Run. The project is generated from `project.yml`, so adding files only requires re-running `xcodegen generate`.
+Choose the **Nova8** scheme and press Run. The repository root is the folder containing `project.yml`; `Nova8/` inside it is the app source, not the checkout directory. The Xcode project is generated, so adding or removing files only requires re-running `xcodegen generate`.
 
-Command line build and tests:
+To update an existing checkout, `git pull` and re-run `xcodegen generate` before building.
+
+Command line build and tests, also from the repository root:
 
 ```sh
 xcodebuild -scheme Nova8 -destination 'platform=macOS' build

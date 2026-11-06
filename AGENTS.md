@@ -6,7 +6,7 @@ macOS SwiftUI app. The repo root is the directory containing `project.yml`; `Nov
 
 Requires `xcodegen` (`brew install xcodegen`). The deployment target is macOS 15 and the project uses Swift 5 language mode.
 
-Run from the repo root (the README's `cd Nova8` assumes you are one directory above the repo):
+Run from the repo root (the directory containing `project.yml`):
 
 ```sh
 xcodegen generate
