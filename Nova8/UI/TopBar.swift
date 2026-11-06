@@ -72,21 +72,12 @@ struct TopBar: View {
 
     private var brand: some View {
         HStack(spacing: 9) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 7, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [Theme.cyan.opacity(0.9), Theme.blue.opacity(0.65)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                Text("8")
-                    .font(.mono(12, .bold))
-                    .foregroundStyle(Theme.background)
-            }
-            .frame(width: 26, height: 26)
-            .shadow(color: Theme.cyan.opacity(0.35), radius: 8)
+            Image("BrandMark")
+                .resizable()
+                .interpolation(.high)
+                .frame(width: 32, height: 32)
+                .shadow(color: Theme.cyan.opacity(0.18), radius: 7)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("NOVA-8")
