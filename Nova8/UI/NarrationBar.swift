@@ -3,6 +3,10 @@ import SwiftUI
 struct NarrationBar: View {
     @Environment(SimulatorModel.self) private var model
 
+    /// Reserves room for the optional tip row (and a two-line detail at the
+    /// narrowest window) so the datapath above never resizes between cycles.
+    static let minHeight: CGFloat = 90
+
     var body: some View {
         HStack(alignment: .top, spacing: 11) {
             stageBadge
@@ -59,7 +63,7 @@ struct NarrationBar: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, minHeight: Self.minHeight, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 13, style: .continuous)
                 .fill(
