@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02BAA9BD81A54926F1E4F6EC /* ProgramPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DF2A41B294C380342F6224 /* ProgramPane.swift */; };
+		14C3507A3660E0DA89165267 /* Nova8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A88CE3288A946C140F053 /* Nova8App.swift */; };
+		15BC3A13E3A62A428B5717A5 /* SimulatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E622FC1666108B80A1708 /* SimulatorModel.swift */; };
+		183AA020D955E80C690E58D7 /* RegistersPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6526309B312323F0A90A1BB /* RegistersPanel.swift */; };
+		184D3A9A57548EAB62FD1C99 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED533087B8A9136D70DC783 /* CodeTextView.swift */; };
+		23AD8613B586F79C42BE4C13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952714985C6388CB9E29054 /* ContentView.swift */; };
+		3BC7CB6ABC2C82C87A641B54 /* DatapathGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4355A3E819BE9F0095CB93D /* DatapathGeometry.swift */; };
+		3D0944BF1FA70D785847E9F8 /* ISA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CDEFDD953827463D2E894 /* ISA.swift */; };
+		47854AD0A2BEBAC817F49A74 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518FC4D4D5480CBDA2B4F66 /* Theme.swift */; };
+		48CF3C37197F7CF9574E8A8E /* CPUState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EDF763E7222D4F5496BF4 /* CPUState.swift */; };
+		4D2B1112FE7350B23E3A3B5D /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EDECE21344165538A11A04 /* Machine.swift */; };
+		4E35A07971B9951F51941FF6 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E150C0EA586E771AFF080041 /* Assembler.swift */; };
+		5E8E03346370B2F17C718659 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD739E52CF714F08EFDED0 /* History.swift */; };
+		5F43499944EC22C381D90414 /* MemoryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F802786685A5B32C20E59B5 /* MemoryPanel.swift */; };
+		606623BC2FF24C4D2B8B5B83 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74216469905C76F52ED557 /* SnapshotTests.swift */; };
+		674878C02439CE8896DA02A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77EB5986AF06053434DBB8A /* Assets.xcassets */; };
+		7B87C56BB0D011222BCC645B /* MicroOp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE4DCE3B0E0373C75DF25C /* MicroOp.swift */; };
+		7BF1C8ADE3B45368F9E5AD34 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE062A8E496ACC16E57E5C6E /* Format.swift */; };
+		7C4DD878DE44648F69D21790 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7E73CCB5144028DBAE71A9 /* Samples.swift */; };
+		890D064A907BF46EEB75054A /* AssemblerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D8295EEADD5DAC7C0FE83 /* AssemblerTests.swift */; };
+		8DF792309943B28FC2A0F738 /* StatePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389BA81C506CFB86EEBA3A08 /* StatePane.swift */; };
+		B125674AA34CEBE3D74D09C5 /* InstructionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE8DDBF6B7CC2A9AB87F80B /* InstructionPanel.swift */; };
+		B2444F165A41249C4DBB0C91 /* OutputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C78457E56966A774620E09 /* OutputPanel.swift */; };
+		B2895625E3EB49E2BE43DE03 /* SamplesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E23D23E46F7B0E0FA117D6 /* SamplesSheet.swift */; };
+		C68FA3102A8A289547D09214 /* WindowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47C4D431FE012E368EEAF8E /* WindowConfigurator.swift */; };
+		C7B07A44CF501C74D15E7ED1 /* ExecutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8533D22D5250D545518C3C /* ExecutionTests.swift */; };
+		C7E061967730E40E59D8FF0B /* SimulatorModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F0C9CB4729ED96E196ACF /* SimulatorModelTests.swift */; };
+		CBADA709DF7D8E8A8CD723ED /* MicroOpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86092021ADFBB0B238620E2 /* MicroOpTests.swift */; };
+		DC642E9160A5218D75BAE912 /* InstructionPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA0EBDCAE7F92318C7625 /* InstructionPlanner.swift */; };
+		E0070C58CED2AE036403B456 /* AssemblyEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99C87AC71F86DF99B8F4E8D /* AssemblyEditor.swift */; };
+		E21EAF5AA64F236283F7A2F0 /* NarrationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CD478F38BB9459C6200B2 /* NarrationBar.swift */; };
+		E57E972AAEAC4343D15A7507 /* TimelineBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B450E1E5BD3AC73296B1A1E1 /* TimelineBar.swift */; };
+		EB272CCC060CB3ED2792BC8D /* DatapathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FE338654F517315E13BFE9 /* DatapathView.swift */; };
+		EC5639C5BFFF83138C0954EA /* AssemblyHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A54A0F1F7B6185A5A7F03A /* AssemblyHighlighter.swift */; };
+		F2D07DF6383BAC0A5213B859 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FDA33673B16449F67C71A2 /* TopBar.swift */; };
+		FBE6BFEA02BD8519B09F769F /* StackPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9BF73B5F483F6E507182D /* StackPanel.swift */; };
+		FCA3854E0BC1048AD57C1349 /* DatapathComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A23C2F0A8F55A49A4AE5CD /* DatapathComponents.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15A85B5C84CA49BDEC005257 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 160626D7EC50FD53ECE919D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B901A786E03AFC8A74EFDCC4;
+			remoteInfo = Nova8;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09A23C2F0A8F55A49A4AE5CD /* DatapathComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapathComponents.swift; sourceTree = "<group>"; };
+		0E1E622FC1666108B80A1708 /* SimulatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorModel.swift; sourceTree = "<group>"; };
+		0F74216469905C76F52ED557 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
+		1E922E9C59125791C260A2C5 /* Nova8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nova8.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F802786685A5B32C20E59B5 /* MemoryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPanel.swift; sourceTree = "<group>"; };
+		2518FC4D4D5480CBDA2B4F66 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2952714985C6388CB9E29054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		371A88CE3288A946C140F053 /* Nova8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nova8App.swift; sourceTree = "<group>"; };
+		389BA81C506CFB86EEBA3A08 /* StatePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePane.swift; sourceTree = "<group>"; };
+		3AE8DDBF6B7CC2A9AB87F80B /* InstructionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPanel.swift; sourceTree = "<group>"; };
+		3E2CDEFDD953827463D2E894 /* ISA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISA.swift; sourceTree = "<group>"; };
+		42EDECE21344165538A11A04 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		52DE4DCE3B0E0373C75DF25C /* MicroOp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroOp.swift; sourceTree = "<group>"; };
+		66DF2A41B294C380342F6224 /* ProgramPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPane.swift; sourceTree = "<group>"; };
+		6ED533087B8A9136D70DC783 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
+		735EDF763E7222D4F5496BF4 /* CPUState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUState.swift; sourceTree = "<group>"; };
+		74AD739E52CF714F08EFDED0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		7DC9BF73B5F483F6E507182D /* StackPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPanel.swift; sourceTree = "<group>"; };
+		7E8533D22D5250D545518C3C /* ExecutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionTests.swift; sourceTree = "<group>"; };
+		8535D40A18B997FFABE3235D /* Nova8Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nova8Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1F0C9CB4729ED96E196ACF /* SimulatorModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorModelTests.swift; sourceTree = "<group>"; };
+		9C1CD478F38BB9459C6200B2 /* NarrationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarrationBar.swift; sourceTree = "<group>"; };
+		A47C4D431FE012E368EEAF8E /* WindowConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowConfigurator.swift; sourceTree = "<group>"; };
+		A77EB5986AF06053434DBB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B16D8295EEADD5DAC7C0FE83 /* AssemblerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerTests.swift; sourceTree = "<group>"; };
+		B3E23D23E46F7B0E0FA117D6 /* SamplesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesSheet.swift; sourceTree = "<group>"; };
+		B450E1E5BD3AC73296B1A1E1 /* TimelineBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineBar.swift; sourceTree = "<group>"; };
+		B5A54A0F1F7B6185A5A7F03A /* AssemblyHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyHighlighter.swift; sourceTree = "<group>"; };
+		B99C87AC71F86DF99B8F4E8D /* AssemblyEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyEditor.swift; sourceTree = "<group>"; };
+		B9FDA33673B16449F67C71A2 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		C6526309B312323F0A90A1BB /* RegistersPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistersPanel.swift; sourceTree = "<group>"; };
+		C86092021ADFBB0B238620E2 /* MicroOpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroOpTests.swift; sourceTree = "<group>"; };
+		CB7E73CCB5144028DBAE71A9 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
+		D2FE338654F517315E13BFE9 /* DatapathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapathView.swift; sourceTree = "<group>"; };
+		D4355A3E819BE9F0095CB93D /* DatapathGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapathGeometry.swift; sourceTree = "<group>"; };
+		D66EA0EBDCAE7F92318C7625 /* InstructionPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPlanner.swift; sourceTree = "<group>"; };
+		D7771F6243C2C4B68F53AD15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E150C0EA586E771AFF080041 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
+		E8C78457E56966A774620E09 /* OutputPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputPanel.swift; sourceTree = "<group>"; };
+		EE062A8E496ACC16E57E5C6E /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1126F2191979E83FB9254E02 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				B99C87AC71F86DF99B8F4E8D /* AssemblyEditor.swift */,
+				B5A54A0F1F7B6185A5A7F03A /* AssemblyHighlighter.swift */,
+				6ED533087B8A9136D70DC783 /* CodeTextView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		20FE9B23B5D45C7FF14A7E43 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				E150C0EA586E771AFF080041 /* Assembler.swift */,
+				735EDF763E7222D4F5496BF4 /* CPUState.swift */,
+				EE062A8E496ACC16E57E5C6E /* Format.swift */,
+				74AD739E52CF714F08EFDED0 /* History.swift */,
+				D66EA0EBDCAE7F92318C7625 /* InstructionPlanner.swift */,
+				3E2CDEFDD953827463D2E894 /* ISA.swift */,
+				42EDECE21344165538A11A04 /* Machine.swift */,
+				52DE4DCE3B0E0373C75DF25C /* MicroOp.swift */,
+				CB7E73CCB5144028DBAE71A9 /* Samples.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		307BB04758BFAA411A1DF2D7 = {
+			isa = PBXGroup;
+			children = (
+				51F51CFB30D6E6033F25F2A8 /* Nova8 */,
+				945F5A46B266531E678FED19 /* Nova8Tests */,
+				EFE435F4AC07B81307B5E1B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4852F13713F4C0D9710B95C2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EF8D1E9EAD2C58098D62A09A /* Datapath */,
+				1126F2191979E83FB9254E02 /* Editor */,
+				CF63A8AA0BAA1F793EB3BCB9 /* Panels */,
+				9C1CD478F38BB9459C6200B2 /* NarrationBar.swift */,
+				66DF2A41B294C380342F6224 /* ProgramPane.swift */,
+				B3E23D23E46F7B0E0FA117D6 /* SamplesSheet.swift */,
+				389BA81C506CFB86EEBA3A08 /* StatePane.swift */,
+				2518FC4D4D5480CBDA2B4F66 /* Theme.swift */,
+				B450E1E5BD3AC73296B1A1E1 /* TimelineBar.swift */,
+				B9FDA33673B16449F67C71A2 /* TopBar.swift */,
+				A47C4D431FE012E368EEAF8E /* WindowConfigurator.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		51F51CFB30D6E6033F25F2A8 /* Nova8 */ = {
+			isa = PBXGroup;
+			children = (
+				E600638D5CA2F65B7293DEC1 /* App */,
+				20FE9B23B5D45C7FF14A7E43 /* Engine */,
+				77B779A06EBAB3F23DFDF73E /* Resources */,
+				4852F13713F4C0D9710B95C2 /* UI */,
+				2952714985C6388CB9E29054 /* ContentView.swift */,
+				D7771F6243C2C4B68F53AD15 /* Info.plist */,
+			);
+			path = Nova8;
+			sourceTree = "<group>";
+		};
+		77B779A06EBAB3F23DFDF73E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A77EB5986AF06053434DBB8A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		945F5A46B266531E678FED19 /* Nova8Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B16D8295EEADD5DAC7C0FE83 /* AssemblerTests.swift */,
+				7E8533D22D5250D545518C3C /* ExecutionTests.swift */,
+				C86092021ADFBB0B238620E2 /* MicroOpTests.swift */,
+				8C1F0C9CB4729ED96E196ACF /* SimulatorModelTests.swift */,
+				0F74216469905C76F52ED557 /* SnapshotTests.swift */,
+			);
+			path = Nova8Tests;
+			sourceTree = "<group>";
+		};
+		CF63A8AA0BAA1F793EB3BCB9 /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				3AE8DDBF6B7CC2A9AB87F80B /* InstructionPanel.swift */,
+				1F802786685A5B32C20E59B5 /* MemoryPanel.swift */,
+				E8C78457E56966A774620E09 /* OutputPanel.swift */,
+				C6526309B312323F0A90A1BB /* RegistersPanel.swift */,
+				7DC9BF73B5F483F6E507182D /* StackPanel.swift */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
+		E600638D5CA2F65B7293DEC1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				371A88CE3288A946C140F053 /* Nova8App.swift */,
+				0E1E622FC1666108B80A1708 /* SimulatorModel.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EF8D1E9EAD2C58098D62A09A /* Datapath */ = {
+			isa = PBXGroup;
+			children = (
+				09A23C2F0A8F55A49A4AE5CD /* DatapathComponents.swift */,
+				D4355A3E819BE9F0095CB93D /* DatapathGeometry.swift */,
+				D2FE338654F517315E13BFE9 /* DatapathView.swift */,
+			);
+			path = Datapath;
+			sourceTree = "<group>";
+		};
+		EFE435F4AC07B81307B5E1B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E922E9C59125791C260A2C5 /* Nova8.app */,
+				8535D40A18B997FFABE3235D /* Nova8Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B901A786E03AFC8A74EFDCC4 /* Nova8 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D3F9D7BF14CAD98DEB48829 /* Build configuration list for PBXNativeTarget "Nova8" */;
+			buildPhases = (
+				CF7DBE96E155D1D7033AF6D9 /* Sources */,
+				7AECC16E828DB8DB91DC29B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nova8;
+			packageProductDependencies = (
+			);
+			productName = Nova8;
+			productReference = 1E922E9C59125791C260A2C5 /* Nova8.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E321FD09EA2E2BB21680940E /* Nova8Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E52BD0364F0C54E3901ADE5B /* Build configuration list for PBXNativeTarget "Nova8Tests" */;
+			buildPhases = (
+				16CFD362937051508CEF40F0 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BCA91BD46124E93CB810D98 /* PBXTargetDependency */,
+			);
+			name = Nova8Tests;
+			packageProductDependencies = (
+			);
+			productName = Nova8Tests;
+			productReference = 8535D40A18B997FFABE3235D /* Nova8Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		160626D7EC50FD53ECE919D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					B901A786E03AFC8A74EFDCC4 = {
+						ProvisioningStyle = Automatic;
+					};
+					E321FD09EA2E2BB21680940E = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1B38DBD982EBEFE3B7D33806 /* Build configuration list for PBXProject "Nova8" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 307BB04758BFAA411A1DF2D7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EFE435F4AC07B81307B5E1B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B901A786E03AFC8A74EFDCC4 /* Nova8 */,
+				E321FD09EA2E2BB21680940E /* Nova8Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AECC16E828DB8DB91DC29B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				674878C02439CE8896DA02A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16CFD362937051508CEF40F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890D064A907BF46EEB75054A /* AssemblerTests.swift in Sources */,
+				C7B07A44CF501C74D15E7ED1 /* ExecutionTests.swift in Sources */,
+				CBADA709DF7D8E8A8CD723ED /* MicroOpTests.swift in Sources */,
+				C7E061967730E40E59D8FF0B /* SimulatorModelTests.swift in Sources */,
+				606623BC2FF24C4D2B8B5B83 /* SnapshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF7DBE96E155D1D7033AF6D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E35A07971B9951F51941FF6 /* Assembler.swift in Sources */,
+				E0070C58CED2AE036403B456 /* AssemblyEditor.swift in Sources */,
+				EC5639C5BFFF83138C0954EA /* AssemblyHighlighter.swift in Sources */,
+				48CF3C37197F7CF9574E8A8E /* CPUState.swift in Sources */,
+				184D3A9A57548EAB62FD1C99 /* CodeTextView.swift in Sources */,
+				23AD8613B586F79C42BE4C13 /* ContentView.swift in Sources */,
+				FCA3854E0BC1048AD57C1349 /* DatapathComponents.swift in Sources */,
+				3BC7CB6ABC2C82C87A641B54 /* DatapathGeometry.swift in Sources */,
+				EB272CCC060CB3ED2792BC8D /* DatapathView.swift in Sources */,
+				7BF1C8ADE3B45368F9E5AD34 /* Format.swift in Sources */,
+				5E8E03346370B2F17C718659 /* History.swift in Sources */,
+				3D0944BF1FA70D785847E9F8 /* ISA.swift in Sources */,
+				B125674AA34CEBE3D74D09C5 /* InstructionPanel.swift in Sources */,
+				DC642E9160A5218D75BAE912 /* InstructionPlanner.swift in Sources */,
+				4D2B1112FE7350B23E3A3B5D /* Machine.swift in Sources */,
+				5F43499944EC22C381D90414 /* MemoryPanel.swift in Sources */,
+				7B87C56BB0D011222BCC645B /* MicroOp.swift in Sources */,
+				E21EAF5AA64F236283F7A2F0 /* NarrationBar.swift in Sources */,
+				14C3507A3660E0DA89165267 /* Nova8App.swift in Sources */,
+				B2444F165A41249C4DBB0C91 /* OutputPanel.swift in Sources */,
+				02BAA9BD81A54926F1E4F6EC /* ProgramPane.swift in Sources */,
+				183AA020D955E80C690E58D7 /* RegistersPanel.swift in Sources */,
+				7C4DD878DE44648F69D21790 /* Samples.swift in Sources */,
+				B2895625E3EB49E2BE43DE03 /* SamplesSheet.swift in Sources */,
+				15BC3A13E3A62A428B5717A5 /* SimulatorModel.swift in Sources */,
+				FBE6BFEA02BD8519B09F769F /* StackPanel.swift in Sources */,
+				8DF792309943B28FC2A0F738 /* StatePane.swift in Sources */,
+				47854AD0A2BEBAC817F49A74 /* Theme.swift in Sources */,
+				E57E972AAEAC4343D15A7507 /* TimelineBar.swift in Sources */,
+				F2D07DF6383BAC0A5213B859 /* TopBar.swift in Sources */,
+				C68FA3102A8A289547D09214 /* WindowConfigurator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BCA91BD46124E93CB810D98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B901A786E03AFC8A74EFDCC4 /* Nova8 */;
+			targetProxy = 15A85B5C84CA49BDEC005257 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2F5C458A30153DCBC0FBCE3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = Nova8/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xeronith.nova8;
+				PRODUCT_MODULE_NAME = Nova8;
+				PRODUCT_NAME = Nova8;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		4248D5824A11937AFA6D1D6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = Nova8/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xeronith.nova8;
+				PRODUCT_MODULE_NAME = Nova8;
+				PRODUCT_NAME = Nova8;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		5CB7A7DDC1B6CD7F3F2A84BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6BFDCAA5D7016D8C941DBDCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7C66667504FA3638260EE1F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xeronith.nova8.tests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nova8.app/Contents/MacOS/Nova8";
+			};
+			name = Debug;
+		};
+		A841296F844A53DE626DE611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xeronith.nova8.tests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nova8.app/Contents/MacOS/Nova8";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B38DBD982EBEFE3B7D33806 /* Build configuration list for PBXProject "Nova8" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CB7A7DDC1B6CD7F3F2A84BB /* Debug */,
+				6BFDCAA5D7016D8C941DBDCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8D3F9D7BF14CAD98DEB48829 /* Build configuration list for PBXNativeTarget "Nova8" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5C458A30153DCBC0FBCE3F /* Debug */,
+				4248D5824A11937AFA6D1D6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E52BD0364F0C54E3901ADE5B /* Build configuration list for PBXNativeTarget "Nova8Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C66667504FA3638260EE1F7 /* Debug */,
+				A841296F844A53DE626DE611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 160626D7EC50FD53ECE919D2 /* Project object */;
+}

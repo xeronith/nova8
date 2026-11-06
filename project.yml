@@ -1,0 +1,76 @@
+name: Nova8
+options:
+  bundleIdPrefix: com.xeronith
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    ENABLE_HARDENED_RUNTIME: NO
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    DEAD_CODE_STRIPPING: YES
+
+targets:
+  Nova8:
+    type: application
+    platform: macOS
+    sources:
+      - path: Nova8
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.xeronith.nova8
+        PRODUCT_NAME: Nova8
+        PRODUCT_MODULE_NAME: Nova8
+        ENABLE_APP_SANDBOX: NO
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_EMIT_LOC_STRINGS: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: Nova8/Info.plist
+      properties:
+        CFBundleDisplayName: NOVA-8
+        CFBundleName: NOVA-8
+        LSMinimumSystemVersion: "15.0"
+        NSHumanReadableCopyright: ""
+        NSPrincipalClass: NSApplication
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: NOVA-8 Assembly
+            CFBundleTypeRole: Editor
+            LSHandlerRank: Owner
+            CFBundleTypeExtensions:
+              - asm
+              - s
+
+  Nova8Tests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Nova8Tests
+    dependencies:
+      - target: Nova8
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.xeronith.nova8.tests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "5.0"
+
+schemes:
+  Nova8:
+    build:
+      targets:
+        Nova8: all
+        Nova8Tests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - Nova8Tests
