@@ -8,7 +8,6 @@ struct TopBar: View {
 
         HStack(spacing: 14) {
             brand
-                .padding(.leading, 74)
 
             Rectangle()
                 .fill(Theme.stroke)
@@ -42,13 +41,16 @@ struct TopBar: View {
 
             stateBadge
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 12)
         .frame(height: 58)
         .background(
             ZStack {
                 Rectangle().fill(Theme.backgroundTop.opacity(0.92))
                 Rectangle().fill(.ultraThinMaterial).opacity(0.35)
             }
+            // Carry the bar's surface up behind the titlebar strip so the
+            // traffic lights sit on it instead of on the grid background.
+            .ignoresSafeArea(edges: .top)
         )
         .overlay(alignment: .bottom) {
             Rectangle().fill(Theme.stroke).frame(height: 1)
