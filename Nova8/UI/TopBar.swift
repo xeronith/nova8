@@ -3,27 +3,37 @@ import SwiftUI
 struct TopBar: View {
     @Environment(SimulatorModel.self) private var model
 
+    /// Fixed lanes either side of the transport cluster. Reserving a constant
+    /// width keeps the controls from sliding when the program name gets longer
+    /// or the counters gain digits; both lanes add the same headroom, so the
+    /// cluster stays on exactly the same x for the default program.
+    private let leadingLane: CGFloat = 358
+    private let trailingLane: CGFloat = 175
+
     var body: some View {
         @Bindable var model = model
 
         HStack(spacing: 14) {
-            brand
+            HStack(spacing: 14) {
+                brand
 
-            Rectangle()
-                .fill(Theme.stroke)
-                .frame(width: 1, height: 22)
+                Rectangle()
+                    .fill(Theme.stroke)
+                    .frame(width: 1, height: 22)
 
-            programMenu
+                programMenu
 
-            IconButton(
-                systemName: "sidebar.left",
-                size: 26,
-                tint: model.showEditor ? Theme.cyan.opacity(0.8) : Theme.faint,
-                background: .clear,
-                help: model.showEditor ? "Hide the program pane" : "Show the program pane"
-            ) {
-                model.showEditor.toggle()
+                IconButton(
+                    systemName: "sidebar.left",
+                    size: 26,
+                    tint: model.showEditor ? Theme.cyan.opacity(0.8) : Theme.faint,
+                    background: .clear,
+                    help: model.showEditor ? "Hide the program pane" : "Show the program pane"
+                ) {
+                    model.showEditor.toggle()
+                }
             }
+            .frame(width: leadingLane, alignment: .leading)
 
             Spacer(minLength: 10)
 
@@ -38,6 +48,7 @@ struct TopBar: View {
             Spacer(minLength: 10)
 
             counters
+                .frame(width: trailingLane, alignment: .trailing)
 
             stateBadge
         }
@@ -141,6 +152,7 @@ struct TopBar: View {
         .menuStyle(.borderlessButton)
         .menuIndicator(.hidden)
         .fixedSize()
+        .help(displayTitle)
     }
 
     // MARK: Transport
