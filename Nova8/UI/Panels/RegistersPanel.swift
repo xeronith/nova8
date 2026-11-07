@@ -89,3 +89,14 @@ struct RegistersPanel: View {
         .animation(.easeOut(duration: 0.18), value: value)
     }
 }
+
+#if DEBUG
+#Preview("Registers") {
+    RegistersPanel()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 380)
+        .background(Theme.background)
+}
+#endif

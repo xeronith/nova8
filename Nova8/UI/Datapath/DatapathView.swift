@@ -332,3 +332,23 @@ struct WiresLayer: View {
         .allowsHitTesting(false)
     }
 }
+
+#if DEBUG
+#Preview("Datapath Panel") {
+    DatapathPanel()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 900, height: 520)
+        .background(Theme.background)
+}
+
+#Preview("Datapath") {
+    DatapathView()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .frame(width: DatapathGeometry.size.width, height: DatapathGeometry.size.height)
+        .padding()
+        .background(Theme.background)
+}
+#endif

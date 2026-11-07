@@ -184,3 +184,32 @@ struct ProgramPane: View {
         return "Assembled \(count) instruction\(count == 1 ? "" : "s")"
     }
 }
+
+#if DEBUG
+#Preview("Program Pane") {
+    ProgramPane()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 360, height: 640)
+        .background(Theme.background)
+}
+
+#Preview("Program Pane — Diagnostics") {
+    let model = SimulatorModel.preview()
+    model.updateSource("""
+    ; broken program
+    start: FROB A
+           LDI A, 999
+           JMP nowhere
+    """)
+    model.assembleAndLoad()
+    model.showDiagnostics = true
+    return ProgramPane()
+        .environment(model)
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 360, height: 640)
+        .background(Theme.background)
+}
+#endif

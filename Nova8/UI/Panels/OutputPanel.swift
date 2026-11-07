@@ -178,3 +178,26 @@ struct OutputPanel: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Output") {
+    OutputPanel()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 23))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 360)
+        .background(Theme.background)
+}
+
+#Preview("Seven-Segment Digits") {
+    HStack(spacing: 6) {
+        ForEach(0..<10, id: \.self) { digit in
+            SevenSegmentDigit(digit: digit)
+                .frame(width: 21, height: 36)
+        }
+    }
+    .padding()
+    .preferredColorScheme(.dark)
+    .background(Theme.background)
+}
+#endif

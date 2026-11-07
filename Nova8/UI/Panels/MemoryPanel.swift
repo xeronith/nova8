@@ -136,3 +136,14 @@ struct MemoryPanel: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Memory") {
+    MemoryPanel()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 380)
+        .background(Theme.background)
+}
+#endif

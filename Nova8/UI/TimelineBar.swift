@@ -247,3 +247,23 @@ struct TimelineScrubber: View {
         return ticks
     }
 }
+
+#if DEBUG
+#Preview("Flight Recorder") {
+    TimelineBar()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 23))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 1200, height: 106)
+        .background(Theme.background)
+}
+
+#Preview("Timeline Scrubber") {
+    TimelineScrubber()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 23))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 800)
+        .background(Theme.background)
+}
+#endif

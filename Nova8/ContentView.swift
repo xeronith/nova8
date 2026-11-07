@@ -124,3 +124,23 @@ struct StatusToast: View {
         return Theme.cyan
     }
 }
+
+#if DEBUG
+#Preview("Full App") {
+    ContentView()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 23))
+        .preferredColorScheme(.dark)
+        .frame(width: 1500, height: 960)
+}
+
+#Preview("Status Toast") {
+    ZStack(alignment: .top) {
+        Theme.background
+        StatusToast()
+            .environment(SimulatorModel.preview(statusMessage: "Halted after 42 instructions."))
+            .padding(.top, 68)
+    }
+    .preferredColorScheme(.dark)
+    .frame(width: 700, height: 200)
+}
+#endif

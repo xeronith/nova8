@@ -811,3 +811,45 @@ struct MemoryArrows: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Register Bank Card") {
+    RegisterBankCard()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .background(Theme.background)
+}
+
+#Preview("Control Card") {
+    ControlCard()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .background(Theme.background)
+}
+
+#Preview("ALU Card") {
+    ALUCard()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .background(Theme.background)
+}
+
+#Preview("Signals Card") {
+    SignalsCard()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .background(Theme.background)
+}
+
+#Preview("Memory Card") {
+    MemoryCard()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .background(Theme.background)
+}
+#endif

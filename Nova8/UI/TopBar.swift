@@ -251,3 +251,13 @@ struct TopBar: View {
         .frame(width: 70, alignment: .trailing)
     }
 }
+
+#if DEBUG
+#Preview("Top Bar") {
+    TopBar()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .frame(width: 1500)
+        .background(Theme.background)
+}
+#endif

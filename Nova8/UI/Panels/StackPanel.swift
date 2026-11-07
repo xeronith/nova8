@@ -66,3 +66,20 @@ struct StackPanel: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Stack") {
+    let model = SimulatorModel.preview(sampleID: "subroutine")
+    var guardCount = 0
+    while model.stackDepth < 2 && guardCount < 2000 {
+        model.step()
+        guardCount += 1
+    }
+    return StackPanel()
+        .environment(model)
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 380)
+        .background(Theme.background)
+}
+#endif

@@ -125,3 +125,14 @@ struct NarrationBar: View {
         return "Press Step to advance one micro-operation, or Run to watch the clock. Every transfer across the bus is a real cycle."
     }
 }
+
+#if DEBUG
+#Preview("Narration") {
+    NarrationBar()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 820)
+        .background(Theme.background)
+}
+#endif

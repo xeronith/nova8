@@ -165,3 +165,11 @@ struct SamplesSheet: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Samples Sheet") {
+    SamplesSheet()
+        .environment(SimulatorModel.preview())
+        .preferredColorScheme(.dark)
+}
+#endif

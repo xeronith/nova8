@@ -375,3 +375,57 @@ struct SegmentedPill<Value: Hashable & Identifiable, Label: View>: View {
         )
     }
 }
+
+#if DEBUG
+#Preview("Panel") {
+    Panel(title: "Registers", meta: "SP 0x00 · 0/48 stack") {
+        Text("Panel content")
+            .font(.ui(11))
+            .foregroundStyle(Theme.dim)
+            .frame(maxWidth: .infinity, minHeight: 80)
+    }
+    .preferredColorScheme(.dark)
+    .padding()
+    .frame(width: 380)
+    .background(Theme.background)
+}
+
+#Preview("Bits & Lamps") {
+    VStack(alignment: .leading, spacing: 12) {
+        BitBars(value: 0b1011_0100, color: Theme.cyan)
+        BitBars(value: 0b0000_1111, color: Theme.amber)
+
+        HStack(spacing: 8) {
+            Lamp(label: "Z", on: true, color: Theme.amber)
+            Lamp(label: "C", on: false, color: Theme.amber)
+            Lamp(label: "N", on: true, color: Theme.amber)
+        }
+
+        HStack(spacing: 8) {
+            TinyChip(text: "READY", color: Theme.cyan)
+            TinyChip(text: "HALTED", color: Theme.amber)
+            TinyChip(text: "3 ERRORS", color: Theme.red, filled: true)
+        }
+
+        HStack(spacing: 8) {
+            IconButton(systemName: "play.fill", prominent: true, help: "Run") {}
+            IconButton(systemName: "forward.end.fill", help: "Step") {}
+            IconButton(systemName: "arrow.counterclockwise", disabled: true, help: "Reset") {}
+        }
+
+        SegmentedPill(values: StepMode.allCases, selection: .constant(.micro)) { mode in
+            Text(mode.rawValue)
+        }
+    }
+    .preferredColorScheme(.dark)
+    .padding()
+    .frame(width: 380)
+    .background(Theme.background)
+}
+
+#Preview("Grid Background") {
+    GridBackground()
+        .preferredColorScheme(.dark)
+        .frame(width: 500, height: 300)
+}
+#endif

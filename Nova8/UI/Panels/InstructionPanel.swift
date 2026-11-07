@@ -117,3 +117,14 @@ struct InstructionPanel: View {
         return Theme.green
     }
 }
+
+#if DEBUG
+#Preview("Instruction") {
+    InstructionPanel()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .padding()
+        .frame(width: 380)
+        .background(Theme.background)
+}
+#endif

@@ -64,11 +64,13 @@ final class SimulatorModel {
     @ObservationIgnored private var previewTask: Task<Void, Never>?
     @ObservationIgnored private var ignoreBreakpointAddress: UInt8?
     @ObservationIgnored private var nextOutputID: Int = 0
+    @ObservationIgnored private let autosaveEnabled: Bool
 
     // MARK: Init
 
-    init() {
-        let saved = Self.readAutosave()
+    init(autosaveEnabled: Bool = true) {
+        self.autosaveEnabled = autosaveEnabled
+        let saved = autosaveEnabled ? Self.readAutosave() : nil
         let initialSource: String
         let initialSample: String
 
@@ -671,8 +673,30 @@ final class SimulatorModel {
     }
 
     private func saveAutosave() {
+        guard autosaveEnabled else { return }
         let directory = Self.supportDirectory
         try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         try? source.write(to: Self.autosaveURL, atomically: true, encoding: .utf8)
     }
 }
+
+// MARK: - Previews
+
+#if DEBUG
+extension SimulatorModel {
+    /// Builds a model for SwiftUI previews: no autosave is read or written, the
+    /// requested sample is loaded, and the machine is stepped a fixed number of
+    /// times so the canvas is deterministic.
+    static func preview(
+        sampleID: String = "countdown",
+        steps: Int = 0,
+        statusMessage: String? = nil
+    ) -> SimulatorModel {
+        let model = SimulatorModel(autosaveEnabled: false)
+        model.loadSample(id: sampleID)
+        for _ in 0..<steps { model.step() }
+        model.statusMessage = statusMessage
+        return model
+    }
+}
+#endif

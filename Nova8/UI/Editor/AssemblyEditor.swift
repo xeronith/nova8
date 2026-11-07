@@ -195,3 +195,31 @@ struct AssemblyEditor: NSViewRepresentable {
         }
     }
 }
+
+#if DEBUG
+#Preview("Assembly Editor") {
+    @Previewable @State var text = """
+    ; NOVA-8
+    .text
+    start: LDI A, 0x2A
+           OUT A
+           HLT
+    """
+    AssemblyEditor(
+        text: $text,
+        highlightedLine: 3,
+        breakpoints: [4],
+        diagnostics: [],
+        lineAddresses: [2: 0x00, 3: 0x02, 4: 0x04],
+        focusLine: 1,
+        focusToken: 0,
+        autoScroll: false,
+        onToggleBreakpoint: { _ in },
+        onCursorLineChange: { _ in }
+    )
+    .preferredColorScheme(.dark)
+    .padding()
+    .frame(width: 360, height: 480)
+    .background(Theme.background)
+}
+#endif

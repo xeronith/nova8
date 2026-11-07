@@ -14,3 +14,13 @@ struct StatePane: View {
         .scrollIndicators(.hidden)
     }
 }
+
+#if DEBUG
+#Preview("State Pane") {
+    StatePane()
+        .environment(SimulatorModel.preview(sampleID: "countdown", steps: 12))
+        .preferredColorScheme(.dark)
+        .frame(width: 380, height: 700)
+        .background(Theme.background)
+}
+#endif
