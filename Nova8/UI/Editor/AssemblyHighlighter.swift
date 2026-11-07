@@ -96,7 +96,7 @@ enum AssemblyHighlighter {
         // Strings and character literals
         for match in stringRegex.matches(in: line, range: code) {
             let range = NSRange(location: offset + match.range.location, length: match.range.length)
-            storage.addAttribute(.foregroundColor, value: NSColor(hex: 0x9FE8B8), range: range)
+            storage.addAttribute(.foregroundColor, value: NSColor.novaString, range: range)
             masked.append(match.range)
         }
 
@@ -157,7 +157,7 @@ enum AssemblyHighlighter {
             guard !intersects(match.range, masked) else { continue }
             storage.addAttribute(
                 .foregroundColor,
-                value: NSColor(hex: 0x8FD8C2),
+                value: NSColor.novaNumber,
                 range: NSRange(location: offset + match.range.location, length: match.range.length)
             )
         }

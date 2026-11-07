@@ -11,7 +11,7 @@ struct WindowConfigurator: NSViewRepresentable {
             window.titleVisibility = .hidden
             window.titlebarAppearsTransparent = true
             window.isMovableByWindowBackground = true
-            window.backgroundColor = .black
+            window.backgroundColor = .novaBg
         }
         return view
     }

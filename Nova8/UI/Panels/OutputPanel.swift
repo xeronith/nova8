@@ -42,7 +42,7 @@ struct SevenSegmentDigit: View {
                 )
                 let path = Path(roundedRect: rect, cornerRadius: min(rect.width, rect.height) / 2)
                 let on = active.contains(index)
-                context.fill(path, with: .color(on ? color : Color.white.opacity(0.055)))
+                context.fill(path, with: .color(on ? color : Theme.track))
             }
         }
         .shadow(color: color.opacity(0.35), radius: 7)

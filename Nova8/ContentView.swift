@@ -98,7 +98,7 @@ struct StatusToast: View {
                 Capsule()
                     .fill(Theme.raised)
                     .overlay(Capsule().strokeBorder(Theme.strokeStrong, lineWidth: 1))
-                    .shadow(color: .black.opacity(0.4), radius: 16, y: 6)
+                    .shadow(color: Theme.shadowStrong, radius: 16, y: 6)
             )
             .transition(.move(edge: .top).combined(with: .opacity))
             .task(id: message) {

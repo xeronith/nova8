@@ -20,7 +20,7 @@ struct AssemblyEditor: NSViewRepresentable {
     func makeNSView(context: Context) -> NSScrollView {
         let scrollView = NSScrollView()
         scrollView.drawsBackground = true
-        scrollView.backgroundColor = NSColor(hex: 0x0A0F16)
+        scrollView.backgroundColor = .novaGutter
         scrollView.contentView.drawsBackground = false
         scrollView.hasVerticalScroller = true
         scrollView.hasHorizontalScroller = false

@@ -4,9 +4,11 @@
 
 **A visual 8-bit computer for macOS.** Registers, a real assembler, a 256-byte memory map, and every fetch, decode and execute cycle animated on a single internal bus.
 
-![NOVA-8 screenshot](Docs/screenshot.png)
+| Dark theme | Light theme |
+|:---:|:---:|
+| ![NOVA-8 dark theme](Docs/screenshot-dark.png) | ![NOVA-8 light theme](Docs/screenshot-light.png) |
 
-NOVA-8 is a teaching machine, not an emulator of anything. It has a deliberately small instruction set, a single bus, and one visible transfer per clock. Every micro-operation explains itself in plain English while the datapath lights up.
+NOVA-8 is a teaching machine, not an emulator of anything. It has a deliberately small instruction set, a single bus, and one visible transfer per clock. Every micro-operation explains itself in plain English while the datapath lights up. It follows the system appearance, so it is equally at home in light and dark mode.
 
 ---
 
@@ -161,6 +163,7 @@ Each demo carries notes that appear in the narration bar as you step.
 - **Output** — a 7-segment display for `0xF0`, a log of writes, and a live input slider for `0xF1`
 - **Flight recorder** — one chip per micro-operation, grouped by instruction. Click a chip, or drag the scrubber underneath, to time-travel
 - **Narration** — what just happened, which control lines were asserted, and a note from the current demo
+- **Appearance** — the light and dark themes follow the system appearance automatically
 
 ### Shortcuts
 

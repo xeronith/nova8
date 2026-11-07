@@ -175,7 +175,7 @@ struct DatapathView: View {
                 .background(
                     Capsule()
                         .fill(packetColor)
-                        .overlay(Capsule().strokeBorder(Color.white.opacity(0.25), lineWidth: 0.7))
+                        .overlay(Capsule().strokeBorder(Theme.strokeStrong, lineWidth: 0.7))
                 )
                 .shadow(color: packetColor.opacity(0.65), radius: 8)
                 .position(point)
@@ -246,8 +246,8 @@ struct WiresLayer: View {
             bus.addLine(to: CGPoint(x: DatapathGeometry.busEndX, y: busY))
 
             context.stroke(bus, with: .color(Theme.cyan.opacity(0.055)), lineWidth: 12)
-            context.stroke(bus, with: .color(Color.white.opacity(0.075)), lineWidth: 2.4)
-            context.stroke(bus, with: .color(Color.white.opacity(0.14)), lineWidth: 0.7)
+            context.stroke(bus, with: .color(Theme.busLine), lineWidth: 2.4)
+            context.stroke(bus, with: .color(Theme.busLineStrong), lineWidth: 0.7)
 
             // Register taps
             for hardware in DatapathGeometry.registers {
@@ -260,14 +260,14 @@ struct WiresLayer: View {
                 tap.addLine(to: CGPoint(x: x, y: busY))
                 context.stroke(
                     tap,
-                    with: .color(active ? activeColor.opacity(0.7) : Color.white.opacity(0.065)),
+                    with: .color(active ? activeColor.opacity(0.7) : Theme.busLine),
                     lineWidth: active ? 1.8 : 1
                 )
 
                 let dotRect = CGRect(x: x - 2, y: busY - 2, width: 4, height: 4)
                 context.fill(
                     Path(ellipseIn: dotRect),
-                    with: .color(active ? activeColor : Color.white.opacity(0.18))
+                    with: .color(active ? activeColor : Theme.busNode)
                 )
             }
 
@@ -277,7 +277,7 @@ struct WiresLayer: View {
             alu.addLine(to: CGPoint(x: DatapathGeometry.aluTapX, y: DatapathGeometry.aluPanel.minY))
             context.stroke(
                 alu,
-                with: .color(isALU ? Theme.green.opacity(0.8) : Color.white.opacity(0.065)),
+                with: .color(isALU ? Theme.green.opacity(0.8) : Theme.busLine),
                 lineWidth: isALU ? 2 : 1
             )
 
@@ -311,7 +311,7 @@ struct WiresLayer: View {
             )
             context.fill(
                 Path(ellipseIn: mdrDot),
-                with: .color(mdrActive ? Theme.cyan : Color.white.opacity(0.18))
+                with: .color(mdrActive ? Theme.cyan : Theme.busNode)
             )
 
             // The route currently being traversed

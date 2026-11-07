@@ -77,7 +77,7 @@ struct NarrationBar: View {
                     RoundedRectangle(cornerRadius: 13, style: .continuous)
                         .strokeBorder(Theme.stroke, lineWidth: 1)
                 )
-                .shadow(color: .black.opacity(0.25), radius: 14, y: 6)
+                .shadow(color: Theme.shadow, radius: 14, y: 6)
         )
         .overlay(alignment: .leading) {
             RoundedRectangle(cornerRadius: 2, style: .continuous)

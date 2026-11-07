@@ -1,41 +1,56 @@
 import SwiftUI
 
+/// Every token resolves to a light or dark value based on the effective
+/// appearance, so the whole UI follows the system theme automatically.
 enum Theme {
 
     // Surfaces
-    static let background = Color(hex: 0x06090E)
-    static let backgroundTop = Color(hex: 0x0A0F16)
-    static let panelTop = Color(hex: 0x111823)
-    static let panelBottom = Color(hex: 0x0B1119)
-    static let panel = Color(hex: 0x0E141C)
-    static let inset = Color(hex: 0x080C12)
-    static let raised = Color(hex: 0x151E2A)
+    static let background = Color(nsColor: .nova(light: 0xEEF2F7, dark: 0x06090E))
+    static let backgroundTop = Color(nsColor: .nova(light: 0xF7F9FC, dark: 0x0A0F16))
+    static let panelTop = Color(nsColor: .nova(light: 0xFFFFFF, dark: 0x111823))
+    static let panelBottom = Color(nsColor: .nova(light: 0xF4F7FB, dark: 0x0B1119))
+    static let panel = Color(nsColor: .nova(light: 0xFFFFFF, dark: 0x0E141C))
+    static let inset = Color(nsColor: .nova(light: 0xE9EEF4, dark: 0x080C12))
+    static let raised = Color(nsColor: .nova(light: 0xFFFFFF, dark: 0x151E2A))
 
     // Lines
-    static let stroke = Color.white.opacity(0.065)
-    static let strokeStrong = Color.white.opacity(0.13)
-    static let grid = Color.white.opacity(0.017)
+    static let stroke = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.10, darkAlpha: 0.065))
+    static let strokeStrong = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.18, darkAlpha: 0.13))
+    static let grid = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.035, darkAlpha: 0.017))
 
     // Text
-    static let text = Color(hex: 0xE9F0F8)
-    static let dim = Color(hex: 0x8392A6)
-    static let faint = Color(hex: 0x4F5D6E)
-    static let ghost = Color(hex: 0x35414F)
+    static let text = Color(nsColor: .nova(light: 0x1A2330, dark: 0xE9F0F8))
+    static let dim = Color(nsColor: .nova(light: 0x566579, dark: 0x8392A6))
+    static let faint = Color(nsColor: .nova(light: 0x8794A6, dark: 0x4F5D6E))
+    static let ghost = Color(nsColor: .nova(light: 0xB6C1CE, dark: 0x35414F))
 
     // Accents
-    static let cyan = Color(hex: 0x5BD8E8)
-    static let blue = Color(hex: 0x6FA8FF)
-    static let amber = Color(hex: 0xF4B860)
-    static let violet = Color(hex: 0xB69CFF)
-    static let green = Color(hex: 0x72E3A6)
-    static let rose = Color(hex: 0xFF90A4)
-    static let red = Color(hex: 0xFF6B6B)
+    static let cyan = Color(nsColor: .nova(light: 0x0E8CA6, dark: 0x5BD8E8))
+    static let blue = Color(nsColor: .nova(light: 0x2E6FE0, dark: 0x6FA8FF))
+    static let amber = Color(nsColor: .nova(light: 0xB26A00, dark: 0xF4B860))
+    static let violet = Color(nsColor: .nova(light: 0x6A4FD0, dark: 0xB69CFF))
+    static let green = Color(nsColor: .nova(light: 0x17915A, dark: 0x72E3A6))
+    static let rose = Color(nsColor: .nova(light: 0xD1496A, dark: 0xFF90A4))
+    static let red = Color(nsColor: .nova(light: 0xD63B3B, dark: 0xFF6B6B))
+
+    // Neutral fills, highlights and wires that used to be literal white/black.
+    static let sheen = Color(nsColor: .nova(light: 0xFFFFFF, dark: 0xFFFFFF, lightAlpha: 0.0, darkAlpha: 0.028))
+    static let track = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.08, darkAlpha: 0.09))
+    static let fillSubtle = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.035, darkAlpha: 0.03))
+    static let hoverStroke = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.12, darkAlpha: 0.1))
+    static let busLine = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.1, darkAlpha: 0.065))
+    static let busLineStrong = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.18, darkAlpha: 0.14))
+    static let busNode = Color(nsColor: .nova(light: 0x0A1622, dark: 0xFFFFFF, lightAlpha: 0.22, darkAlpha: 0.18))
+
+    // Shadows
+    static let shadow = Color(nsColor: .nova(light: 0x000000, dark: 0x000000, lightAlpha: 0.10, darkAlpha: 0.28))
+    static let shadowStrong = Color(nsColor: .nova(light: 0x000000, dark: 0x000000, lightAlpha: 0.16, darkAlpha: 0.40))
 
     // Memory regions
-    static let program = Color(hex: 0x5BD8E8)
-    static let data = Color(hex: 0x72E3A6)
-    static let stack = Color(hex: 0xF4B860)
-    static let io = Color(hex: 0xB69CFF)
+    static let program = Theme.cyan
+    static let data = Theme.green
+    static let stack = Theme.amber
+    static let io = Theme.violet
 
     static func region(_ region: MemoryMap.Region) -> Color {
         switch region {
@@ -85,17 +100,35 @@ extension NSColor {
         self.init(srgbRed: r, green: g, blue: b, alpha: alpha)
     }
 
-    static let novaText = NSColor(hex: 0xE9F0F8)
-    static let novaDim = NSColor(hex: 0x8392A6)
-    static let novaFaint = NSColor(hex: 0x4F5D6E)
-    static let novaCyan = NSColor(hex: 0x5BD8E8)
-    static let novaAmber = NSColor(hex: 0xF4B860)
-    static let novaViolet = NSColor(hex: 0xB69CFF)
-    static let novaGreen = NSColor(hex: 0x72E3A6)
-    static let novaRose = NSColor(hex: 0xFF90A4)
-    static let novaRed = NSColor(hex: 0xFF6B6B)
-    static let novaBg = NSColor(hex: 0x080D13)
-    static let novaSelection = NSColor(hex: 0x1A3444)
+    /// A color that resolves to `light` or `dark` depending on the appearance
+    /// it is drawn in. Both SwiftUI (`Color(nsColor:)`) and AppKit pick this up.
+    static func nova(
+        light: UInt32,
+        dark: UInt32,
+        lightAlpha: CGFloat = 1,
+        darkAlpha: CGFloat = 1
+    ) -> NSColor {
+        NSColor(name: nil, dynamicProvider: { appearance in
+            let isDark = appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
+            return NSColor(hex: isDark ? dark : light, alpha: isDark ? darkAlpha : lightAlpha)
+        })
+    }
+
+    static let novaText = NSColor.nova(light: 0x1A2330, dark: 0xE9F0F8)
+    static let novaDim = NSColor.nova(light: 0x566579, dark: 0x8392A6)
+    static let novaFaint = NSColor.nova(light: 0x8794A6, dark: 0x4F5D6E)
+    static let novaCyan = NSColor.nova(light: 0x0E8CA6, dark: 0x5BD8E8)
+    static let novaAmber = NSColor.nova(light: 0xB26A00, dark: 0xF4B860)
+    static let novaViolet = NSColor.nova(light: 0x6A4FD0, dark: 0xB69CFF)
+    static let novaGreen = NSColor.nova(light: 0x17915A, dark: 0x72E3A6)
+    static let novaRose = NSColor.nova(light: 0xD1496A, dark: 0xFF90A4)
+    static let novaRed = NSColor.nova(light: 0xD63B3B, dark: 0xFF6B6B)
+    static let novaString = NSColor.nova(light: 0x1E8A4C, dark: 0x9FE8B8)
+    static let novaNumber = NSColor.nova(light: 0x0E7C86, dark: 0x8FD8C2)
+    static let novaGutter = NSColor.nova(light: 0xEDF1F6, dark: 0x0A0F16)
+    static let novaGutterEdge = NSColor.nova(light: 0xDCE3EC, dark: 0x111926)
+    static let novaBg = NSColor.nova(light: 0xEEF2F7, dark: 0x080D13)
+    static let novaSelection = NSColor.nova(light: 0xBFD6F0, dark: 0x1A3444)
 }
 
 extension Font {
@@ -221,7 +254,7 @@ struct Panel<Content: View>: View {
                     RoundedRectangle(cornerRadius: 13, style: .continuous)
                         .fill(
                             LinearGradient(
-                                colors: [Color.white.opacity(0.028), .clear],
+                                colors: [Theme.sheen, .clear],
                                 startPoint: .top,
                                 endPoint: .center
                             )
@@ -231,7 +264,7 @@ struct Panel<Content: View>: View {
                     RoundedRectangle(cornerRadius: 13, style: .continuous)
                         .strokeBorder(Theme.stroke, lineWidth: 1)
                 )
-                .shadow(color: .black.opacity(0.28), radius: 18, y: 8)
+                .shadow(color: Theme.shadow, radius: 18, y: 8)
         )
         .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
     }
@@ -249,7 +282,7 @@ struct BitBars: View {
             ForEach(0..<8, id: \.self) { bit in
                 let on = (value >> (7 - bit)) & 1 == 1
                 RoundedRectangle(cornerRadius: 1, style: .continuous)
-                    .fill(on ? color : Color.white.opacity(0.09))
+                    .fill(on ? color : Theme.track)
                     .frame(maxWidth: .infinity)
                     .frame(height: height)
                     .shadow(color: on ? color.opacity(0.45) : .clear, radius: 3)
@@ -266,7 +299,7 @@ struct Lamp: View {
     var body: some View {
         HStack(spacing: 4) {
             Circle()
-                .fill(on ? color : Color.white.opacity(0.1))
+                .fill(on ? color : Theme.track)
                 .frame(width: 5, height: 5)
                 .shadow(color: on ? color.opacity(0.8) : .clear, radius: 4)
             Text("\(label)\(on ? "1" : "0")")
@@ -277,7 +310,7 @@ struct Lamp: View {
         .padding(.vertical, 3)
         .background(
             RoundedRectangle(cornerRadius: 4, style: .continuous)
-                .fill(on ? color.opacity(0.1) : Color.white.opacity(0.03))
+                .fill(on ? color.opacity(0.1) : Theme.fillSubtle)
         )
     }
 }
@@ -327,7 +360,7 @@ struct IconButton: View {
                         .fill(prominent ? tint : background)
                         .overlay(
                             RoundedRectangle(cornerRadius: prominent ? 10 : 8, style: .continuous)
-                                .strokeBorder(Color.white.opacity(hovering && !prominent ? 0.1 : 0), lineWidth: 1)
+                                .strokeBorder(Theme.hoverStroke.opacity(hovering && !prominent ? 1 : 0), lineWidth: 1)
                         )
                 )
                 .shadow(color: prominent && !disabled ? tint.opacity(0.3) : .clear, radius: 10)
@@ -384,7 +417,6 @@ struct SegmentedPill<Value: Hashable & Identifiable, Label: View>: View {
             .foregroundStyle(Theme.dim)
             .frame(maxWidth: .infinity, minHeight: 80)
     }
-    .preferredColorScheme(.dark)
     .padding()
     .frame(width: 380)
     .background(Theme.background)
@@ -417,7 +449,6 @@ struct SegmentedPill<Value: Hashable & Identifiable, Label: View>: View {
             Text(mode.rawValue)
         }
     }
-    .preferredColorScheme(.dark)
     .padding()
     .frame(width: 380)
     .background(Theme.background)
@@ -425,7 +456,6 @@ struct SegmentedPill<Value: Hashable & Identifiable, Label: View>: View {
 
 #Preview("Grid Background") {
     GridBackground()
-        .preferredColorScheme(.dark)
         .frame(width: 500, height: 300)
 }
 #endif

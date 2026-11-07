@@ -8,7 +8,6 @@ struct Nova8App: App {
         WindowGroup {
             ContentView()
                 .environment(model)
-                .preferredColorScheme(.dark)
                 .frame(minWidth: 1240, minHeight: 800)
         }
         .windowStyle(.hiddenTitleBar)

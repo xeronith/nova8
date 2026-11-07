@@ -24,6 +24,19 @@ final class SnapshotTests: XCTestCase {
     }
 
     @MainActor
+    func testMainLightSnapshot() throws {
+        let model = SimulatorModel()
+        model.loadSample(id: "countdown")
+        for _ in 0..<23 { model.step() }
+        try render(
+            ContentView().environment(model),
+            size: CGSize(width: 1500, height: 960),
+            name: "snapshot-main-light.png",
+            appearance: .aqua
+        )
+    }
+
+    @MainActor
     func testHaltedSnapshot() throws {
         let model = SimulatorModel()
         model.loadSample(id: "blank")
@@ -85,9 +98,48 @@ final class SnapshotTests: XCTestCase {
     }
 
     @MainActor
-    private func render<V: View>(_ view: V, size: CGSize, name: String) throws {
-        let root = view.frame(width: size.width, height: size.height)
+    func testThemeResolvesForAppearance() throws {
+        let root = Rectangle()
+            .fill(Theme.background)
+            .frame(width: 24, height: 24)
         let hosting = NSHostingView(rootView: root)
+        hosting.frame = NSRect(x: 0, y: 0, width: 24, height: 24)
+
+        // Sample the same hosting view twice so this also proves the dynamic
+        // tokens re-resolve when the appearance changes at runtime.
+        func sample(_ name: NSAppearance.Name) -> NSColor? {
+            hosting.appearance = NSAppearance(named: name)
+            hosting.layoutSubtreeIfNeeded()
+            RunLoop.current.run(until: Date().addingTimeInterval(0.2))
+            hosting.displayIfNeeded()
+            guard let rep = hosting.bitmapImageRepForCachingDisplay(in: hosting.bounds) else {
+                return nil
+            }
+            hosting.cacheDisplay(in: hosting.bounds, to: rep)
+            return rep.colorAt(x: 12, y: 12)?.usingColorSpace(.sRGB)
+        }
+
+        guard let light = sample(.aqua), let dark = sample(.darkAqua) else {
+            return XCTFail("Could not sample theme colors")
+        }
+
+        XCTAssertGreaterThan(light.brightnessComponent, 0.75)
+        XCTAssertLessThan(dark.brightnessComponent, 0.35)
+    }
+
+    @MainActor
+    private func render<V: View>(
+        _ view: V,
+        size: CGSize,
+        name: String,
+        appearance: NSAppearance.Name = .darkAqua
+    ) throws {
+        let scheme: ColorScheme = appearance == .darkAqua ? .dark : .light
+        let root = view
+            .environment(\.colorScheme, scheme)
+            .frame(width: size.width, height: size.height)
+        let hosting = NSHostingView(rootView: root)
+        hosting.appearance = NSAppearance(named: appearance)
         hosting.frame = NSRect(origin: .zero, size: size)
         hosting.layoutSubtreeIfNeeded()
 

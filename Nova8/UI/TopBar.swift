@@ -136,7 +136,7 @@ struct TopBar: View {
             .padding(.vertical, 6)
             .background(
                 Capsule()
-                    .fill(Color.white.opacity(0.035))
+                    .fill(Theme.fillSubtle)
                     .overlay(Capsule().strokeBorder(Theme.stroke, lineWidth: 1))
             )
         }

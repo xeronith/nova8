@@ -54,14 +54,21 @@ final class CodeTextView: NSTextView {
         NSRect(x: Self.gutterWidth, y: fragment.minY + 1, width: 2, height: max(0, fragment.height - 2)).fill()
     }
 
+    override func viewDidChangeEffectiveAppearance() {
+        super.viewDidChangeEffectiveAppearance()
+        // Gutter fills and the attributed text use dynamic colors, so a
+        // light/dark switch just needs a redraw to pick up the new appearance.
+        needsDisplay = true
+    }
+
     private func drawGutter(in rect: NSRect, layout: NSLayoutManager) {
         let ns = string as NSString
         let starts = lineStarts()
 
-        NSColor(hex: 0x0A0F16).setFill()
+        NSColor.novaGutter.setFill()
         NSRect(x: 0, y: rect.minY, width: Self.gutterWidth, height: rect.height).fill()
 
-        NSColor(hex: 0x111926).setFill()
+        NSColor.novaGutterEdge.setFill()
         NSRect(x: Self.gutterWidth - 1, y: rect.minY, width: 1, height: rect.height).fill()
 
         guard ns.length > 0 else { return }

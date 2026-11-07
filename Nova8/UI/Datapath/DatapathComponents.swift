@@ -673,7 +673,7 @@ struct MiniRAMView: View {
                 var path = Path()
                 path.move(to: CGPoint(x: 0, y: y))
                 path.addLine(to: CGPoint(x: size.width, y: y))
-                context.stroke(path, with: .color(Color.white.opacity(0.06)), lineWidth: 0.8)
+                context.stroke(path, with: .color(Theme.busLine), lineWidth: 0.8)
             }
         }
     }
